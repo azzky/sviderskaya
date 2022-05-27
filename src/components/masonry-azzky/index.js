@@ -14,17 +14,16 @@ const GalleryItem = ({
     index,
     settings
 }) => {
-    console.log(img.file.url);
     return (
         <Item itemScope
               itemType="http://schema.org/ImageObject">
             <figcaption itemProp="name"
                         className="visually-hidden">
-                {img.description || 'aaaaa'}
+                {img.description || ' '}
             </figcaption>
             <GatsbyImage itemProp="contentUrl"
                          image={img.gatsbyImageData}
-                         alt={img.description || 'aaaaa'} />
+                         alt={img.description || ' '} />
             <button className="opener"
                     onClick={() =>
                         settings.useLightBox &&
@@ -107,7 +106,7 @@ const ResponsiveGallery = ({
     return <>
     {useLightBox && lightBoxVal.isOpen && (
     <ImagesLightBox
-        imagesLightbox={images}
+        imagesLightbox={allImages}
         photoIndex={lightBoxVal.photoIndex}
         lightBoxDispatch={lightBoxDispatch}
         />

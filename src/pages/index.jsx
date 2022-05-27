@@ -31,6 +31,9 @@ const Shibari = () => {
                         )
                         description
                     }
+                    text {
+                        text
+                    }
                 }
             }
         }
@@ -41,7 +44,7 @@ const Shibari = () => {
             <div>
                 <GatsbyImage image={edges[0].node.image.gatsbyImageData}/>
                 <div>
-                    <p>text</p>
+                    <p>{edges[0].node.text.text}</p>
                 </div>
             </div>
         {/* <MetaHome data={data} /> */}

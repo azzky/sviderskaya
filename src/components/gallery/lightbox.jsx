@@ -8,16 +8,15 @@ export const ImagesLightBox = ({
     photoIndex,
     lightBoxDispatch,
     lightBoxAdditionalProps,
-    pageNsfw,
 }) => {
-    const isNSFW = imagesLightbox[photoIndex].nsfw && !pageNsfw
+    const settingsQuery = '?w=2048&h=2048&q=100&fm=webp'
     return(
-    <Lightbox mainSrc={!isNSFW ? imagesLightbox[photoIndex].full : HolderSmall.placeholder.fallback}
-              nextSrc={imagesLightbox[(photoIndex + 1) % imagesLightbox.length].full}
+    <Lightbox mainSrc={imagesLightbox[photoIndex].file.url + settingsQuery}
+              nextSrc={imagesLightbox[(photoIndex + 1) % imagesLightbox.length].file.url + settingsQuery}
               prevSrc={
                     imagesLightbox[
                         (photoIndex + imagesLightbox.length - 1) % imagesLightbox.length
-                    ].full
+                    ].file.url + settingsQuery
               }
               onCloseRequest={() => lightBoxDispatch({ type: "close" })}
               onMovePrevRequest={() =>
